@@ -7,27 +7,32 @@
     let arguments = command.arguments[0];
     let jsonData = JSON(arguments);
 
-    var stickerPack: StickerPack!;
+    StickerPackManager.queue.async {
+      var json: [String: Any] = [:]
+      json["identifier"] = jsonData["identifier"]
+      json["name"] = jsonData["name"]
+      json["publisher"] = jsonData["publisher"]
+      json["tray_image"] = jsonData["trayImageFileName"]
 
-    stickerPack = try StickerPack(
-      identifier: jsonData["identifier"],
-      name: jsonData["name"],
-      publisher: jsonData["publisher"],
-      trayImageFileName: jsonData["trayImageFileName"],
-      '',
-      '',
-      ''
-    )
+      var stickersArray: [[String: Any]] = []
 
-    stickerPack.sendToWhatsApp { completed in 
-    
-      if (completed) {
-        pluginResult = CDVPluginResult(
-          status: CDVCommandStatus_OK,
-          messageAsString: 'Deu certo'
-        )
+      for sticker in json["stickers"] {
+          var stickerDict: [String: Any] = [:]
+
+          stickerDict["image_data"] = sticker
+
+          stickersArray.append(stickerDict)
       }
-  
+      
+      json["stickers"] = stickersArray
+
+      let result = Interoperability.send(json: json)
+      DispatchQueue.main.async {
+          pluginResult = CDVPluginResult(
+            status: CDVCommandStatus_OK,
+            messageAsString: 'Deu certo'
+          )
+      }
     }
 
     // let msg = command.arguments[0] as? String ?? ""

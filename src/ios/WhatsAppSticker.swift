@@ -1,3 +1,5 @@
+import Foundation
+
 @objc(WhatsAppSticker) class WhatsAppSticker : CDVPlugin {
   func sendToWhatsapp(command: CDVInvokedUrlCommand) {
     var pluginResult = CDVPluginResult(

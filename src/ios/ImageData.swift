@@ -69,7 +69,7 @@ class ImageData {
      */
     lazy var webpData: Data? = {
         if self.type == .webp {
-            return data
+            return self.data
         } else {
             return WebPManager.shared.encode(pngData: self.data)
         }
@@ -82,7 +82,7 @@ class ImageData {
         if self.type == ImageDataExtension.webp {
             return WebPManager.shared.decode(webPData: self.data)
         } else {
-            return UIImage(data: data)
+            return UIImage(data: self.data)
         }
     }()
 

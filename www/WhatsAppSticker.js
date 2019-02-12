@@ -1,5 +1,5 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function (arg0, success, error) {
-    exec(success, error, 'WhatsAppSticker', 'coolMethod', [arg0]);
+exports.sendToWhatsapp = function (arg0, success, error) {
+    exec(success, error, 'WhatsAppSticker', 'sendToWhatsapp', [arg0]);
 };

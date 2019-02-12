@@ -18,7 +18,7 @@ import UIKit
 
       var stickersArray: [[String: Any]] = []
 
-      for sticker in json["stickers"] {
+      for sticker in json["stickers"] as! [String] {
           var stickerDict: [String: Any] = [:]
 
           stickerDict["image_data"] = sticker

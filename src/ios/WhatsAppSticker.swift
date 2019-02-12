@@ -7,7 +7,7 @@ import Foundation
     )
 
     let arguments = command.arguments[0];
-    let jsonData = JSON(arguments);
+    let jsonData = try? JSONSerialization.jsonObject(with: arguments, options: [])
 
     StickerPackManager.queue.async {
       var json: [String: Any] = [:]

@@ -18,6 +18,7 @@
         </array>
       </config-file>
 
+      <header-file src="src/ios/WhatsAppSticker-Bridging-Header.h" />
       <source-file src="src/ios/WhatsAppSticker.swift" />
 
       <header-file src="src/ios/YYAnimatedImageView.h" />
@@ -30,6 +31,8 @@
       <source-file src="src/ios/YYImageCoder.m" />
       <header-file src="src/ios/YYSpriteSheetImage.h" />
       <source-file src="src/ios/YYSpriteSheetImage.m" />
+
+      <dependency id="cordova-plugin-add-swift-support" version="1.5.0">
 
    </platform>
 </plugin>

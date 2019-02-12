@@ -1,6 +1,7 @@
-
+import UIKit
 
 @objc(WhatsAppSticker) class WhatsAppSticker : CDVPlugin {
+  
   func sendToWhatsapp(command: CDVInvokedUrlCommand) {
     var pluginResult = CDVPluginResult(
       status: CDVCommandStatus_ERROR

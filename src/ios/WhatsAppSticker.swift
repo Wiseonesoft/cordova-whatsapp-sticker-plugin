@@ -31,8 +31,7 @@ import UIKit
       let result = Interoperability.send(json: json)
       DispatchQueue.main.async {
           pluginResult = CDVPluginResult(
-            status: CDVCommandStatus_OK,
-            messageAsString: "Deu certo"
+            status: CDVCommandStatus_OK
           )
       }
     }
@@ -73,7 +72,7 @@ import UIKit
     //   
     // }
 
-    self.commandDelegate!.sendPluginResult(
+    self.commandDelegate!.send(
       pluginResult, 
       callbackId: command.callbackId
     )

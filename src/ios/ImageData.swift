@@ -56,8 +56,8 @@ class ImageData {
      *  It will always return false if the image is png.
      */
     lazy var animated: Bool = {
-        if type == .webp {
-            return WebPManager.shared.isAnimated(webPData: data)
+        if self.type == .webp {
+            return WebPManager.shared.isAnimated(webPData: self.data)
         } else {
             return false
         }
@@ -68,10 +68,10 @@ class ImageData {
      *  the data is simply returned. If it's png, it will returned the webp converted equivalent data.
      */
     lazy var webpData: Data? = {
-        if type == .webp {
+        if self.type == .webp {
             return data
         } else {
-            return WebPManager.shared.encode(pngData: data)
+            return WebPManager.shared.encode(pngData: self.data)
         }
     }()
 
@@ -79,8 +79,8 @@ class ImageData {
      *  Returns a UIImage of the current image data. If data is corrupt, nil will be returned.
      */
     lazy var image: UIImage? = {
-        if type == ImageDataExtension.webp {
-            return WebPManager.shared.decode(webPData: data)
+        if self.type == ImageDataExtension.webp {
+            return WebPManager.shared.decode(webPData: self.data)
         } else {
             return UIImage(data: data)
         }

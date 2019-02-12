@@ -1,4 +1,4 @@
-import Foundation
+
 
 @objc(WhatsAppSticker) class WhatsAppSticker : CDVPlugin {
   func sendToWhatsapp(command: CDVInvokedUrlCommand) {
@@ -6,8 +6,7 @@ import Foundation
       status: CDVCommandStatus_ERROR
     )
 
-    let arguments = command.arguments[0];
-    let jsonData = try? JSONSerialization.jsonObject(with: arguments, options: [])
+    let jsonData : [String:Any] = command.arguments[0] as! [String:Any];
 
     StickerPackManager.queue.async {
       var json: [String: Any] = [:]
@@ -32,7 +31,7 @@ import Foundation
       DispatchQueue.main.async {
           pluginResult = CDVPluginResult(
             status: CDVCommandStatus_OK,
-            messageAsString: 'Deu certo'
+            messageAsString: "Deu certo"
           )
       }
     }

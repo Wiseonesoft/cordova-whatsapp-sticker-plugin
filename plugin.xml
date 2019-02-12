@@ -21,13 +21,13 @@
       <header-file src="src/ios/WhatsAppSticker-Bridging-Header.h" />
       <source-file src="src/ios/WhatsAppSticker.swift" />
 
-      <source-file src="src/ios/Sticker.swift">
-      <source-file src="src/ios/StickerPack.swift">
-      <source-file src="src/ios/StickerPackManager.swift">
-      <source-file src="src/ios/Limits.swift">
-      <source-file src="src/ios/Interoperability.swift">
-      <source-file src="src/ios/ImageData.swift">
-      <source-file src="src/ios/WebPManager.swift">
+      <source-file src="src/ios/Sticker.swift"/>
+      <source-file src="src/ios/StickerPack.swift"/>
+      <source-file src="src/ios/StickerPackManager.swift"/>
+      <source-file src="src/ios/Limits.swift"/>
+      <source-file src="src/ios/Interoperability.swift"/>
+      <source-file src="src/ios/ImageData.swift"/>
+      <source-file src="src/ios/WebPManager.swift"/>
 
       <header-file src="src/ios/YYAnimatedImageView.h" />
       <source-file src="src/ios/YYAnimatedImageView.m" />

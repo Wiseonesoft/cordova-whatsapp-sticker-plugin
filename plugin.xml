@@ -12,6 +12,12 @@
          </feature>
       </config-file>
 
+      <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+        <array>
+          <string>whatsapp</string>
+        </array>
+      </config-file>
+
       <source-file src="src/ios/WhatsAppSticker.swift" />
 
       <header-file src="src/ios/YYAnimatedImageView.h" />

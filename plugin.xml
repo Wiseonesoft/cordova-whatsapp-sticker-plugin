@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-whatsapp-sticker-plugin" version="0.0.1">
    <name>WhatsAppSticker</name>
-   
+
    <js-module name="WhatsAppSticker" src="www/WhatsAppSticker.js">
       <clobbers target="cordova.plugins.WhatsAppSticker" />
    </js-module>
@@ -10,7 +10,6 @@
       <config-file parent="/*" target="config.xml">
          <feature name="WhatsAppSticker">
             <param name="ios-package" value="WhatsAppSticker" />
-            <param name="onload" value="true" />
          </feature>
       </config-file>
 
@@ -41,8 +40,6 @@
       <source-file src="src/ios/YYImageCoder.m" />
       <header-file src="src/ios/YYSpriteSheetImage.h" />
       <source-file src="src/ios/YYSpriteSheetImage.m" />
-
-      <dependency id="cordova-plugin-add-swift-support" version="1.5.0"/>
 
    </platform>
 </plugin>

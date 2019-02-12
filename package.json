@@ -1,0 +1,25 @@
+{
+  "name": "cordova-whatsapp-sticker-plugin",
+  "version": "0.0.1",
+  "description": "Um plugin que compartilha Stickers do WhatsApp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/H4ad/cordova-whatsapp-sticker-plugin.git"
+  },
+  "keywords": [
+    "plugin",
+    "cordova",
+    "whatsapp",
+    "sticker"
+  ],
+  "author": "Vinícius Lourenço",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/H4ad/cordova-whatsapp-sticker-plugin/issues"
+  },
+  "homepage": "https://github.com/H4ad/cordova-whatsapp-sticker-plugin#readme"
+}

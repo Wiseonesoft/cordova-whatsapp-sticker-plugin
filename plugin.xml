@@ -20,7 +20,7 @@
       </config-file>
 
       <header-file src="src/ios/WhatsAppSticker-Bridging-Header.h" />
-      <source-file src="src/ios/WhatsAppSticker.swift" />
+      <source-file src="src/ios/WhatsAppSticker.m" />
 
       <source-file src="src/ios/Sticker.swift"/>
       <source-file src="src/ios/StickerPack.swift"/>

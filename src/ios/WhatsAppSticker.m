@@ -10,7 +10,6 @@
 
 /********* WhatsAppSticker.m Cordova Plugin Implementation *******/
 
-#import "WhatsAppSticker.h"
 #import <Cordova/CDVPlugin.h>
 
 @implementation WhatsAppSticker

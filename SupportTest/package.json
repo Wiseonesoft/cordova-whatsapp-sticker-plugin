@@ -1,0 +1,17 @@
+{
+  "name": "cordova-plugin-support-test",
+  "version": "0.0.1",
+  "description": "Um plugin de teste",
+  "cordova": {
+    "id": "cordova-plugin-support-test",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Vinícius Lourenço",
+  "license": "MIT"
+}

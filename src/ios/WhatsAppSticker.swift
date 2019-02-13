@@ -15,7 +15,6 @@ import UIKit
     let json = command.arguments[0] as? String ?? ""
     let jsonData = Data(json.utf8);
 
-
     if #available(iOS 10.0, *) {
         pasteboard.setItems([[PasteboardStickerPackDataType: jsonData]], options: [UIPasteboardOption.localOnly: true, UIPasteboardOption.expirationDate: NSDate(timeIntervalSinceNow: PasteboardExpirationSeconds)])
     } else {
@@ -31,42 +30,6 @@ import UIKit
           }
       }
     }
-
-    // let msg = command.arguments[0] as? String ?? ""
-
-    // if msg.characters.count > 0 {
-    //   /* UIAlertController is iOS 8 or newer only. */
-    //   let toastController: UIAlertController = 
-    //     UIAlertController(
-    //       title: "", 
-    //       message: msg, 
-    //       preferredStyle: .Alert
-    //     )
-
-    //   self.viewController?.presentViewController(
-    //     toastController, 
-    //     animated: true, 
-    //     completion: nil
-    //   )
-
-    //   let duration = Double(NSEC_PER_SEC) * 3.0
-      
-    //   dispatch_after(
-    //     dispatch_time(
-    //       DISPATCH_TIME_NOW, 
-    //       Int64(duration)
-    //     ), 
-    //     dispatch_get_main_queue(), 
-    //     { 
-    //       toastController.dismissViewControllerAnimated(
-    //         true, 
-    //         completion: nil
-    //       )
-    //     }
-    //   )
-
-    //   
-    // }
 
     self.commandDelegate!.send(
       pluginResult, 

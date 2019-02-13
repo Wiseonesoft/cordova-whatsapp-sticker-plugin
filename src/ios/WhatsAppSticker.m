@@ -17,48 +17,26 @@
 - (void)sendToWhatsapp:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    // NSString* identifier = [ valueForKey:@"identifier" ];
-    // NSString* name = [[command.arguments objectAtIndex:0] valueForKey:@"name" ];
-    // NSString* publisher = [[command.arguments objectAtIndex:0] valueForKey:@"publisher" ];
-    // NSString* trayImage = [[command.arguments objectAtIndex:0] valueForKey:@"trayImage" ];
-    // NSArray* stickers = [[command.arguments objectAtIndex:0] valueForKey:@"stickers" ];
 
-    // StickerPackManager.queue.async {
-    //   NSMutableDictionary *dict = [[NSMutableDictionary alloc]initWithCapacity:10];
-
-
-
-    //   for sticker in json["stickers"] as! [String] {
-    //     var stickerDict: [String: Any] = [:]
-        
-    //     [myArray addObject: @"New item"];
-    //     stickerDict["image_data"] = sticker
-
-    //     stickersArray.append(stickerDict)
-    //   }
-      
-    //   json["stickers"] = stickersArray
-
-    //   let result = Interoperability.send(json: json)
-    //   DispatchQueue.main.async {
-    //       pluginResult = CDVPluginResult(
-    //         status: CDVCommandStatus_OK
-    //       )
-    //   }
-    // }
+    // Obtém o JSON contendo as informações do Sticker Pack
     NSString* json = [command.arguments objectAtIndex:0];
 
+    // Copia as informações do JSON para o Pasteboard, que é a forma na qual o Whatsapp lê as informações do Sticker Pack no iOS
     [[UIPasteboard generalPasteboard] setData:json forPasteboardType:@"net.whatsapp.third-party.sticker-pack"];
 
     UIApplication *application = [UIApplication sharedApplication];
+
+    // O URL Scheme usado para enviar as informações do Sticker Pack
     NSURL *URL = [NSURL URLWithString:@"whatsapp://stickerPack"];
+
+    // Abre o URL Scheme, e por consequencia, abre o WhatsApp
     [application openURL:URL options:@{} completionHandler:^(BOOL success) {
         if (success) {
-            NSLog(@"Opened url");
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Figurinhas enviadas."];
+        } else {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Ocorreu algum problema, as figurinhas não foram enviadas."];
         }
     }];
-
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Deu certo"];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }

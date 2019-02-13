@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "Um plugin que compartilha Stickers do WhatsApp",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/H4ad/cordova-whatsapp-sticker-plugin.git"
@@ -14,7 +12,8 @@
     "plugin",
     "cordova",
     "whatsapp",
-    "sticker"
+    "sticker",
+    "ios"
   ],
   "author": "Vinícius Lourenço",
   "license": "MIT",

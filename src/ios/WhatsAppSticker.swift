@@ -1,38 +1,31 @@
 import UIKit
 
 @objc(WhatsAppSticker) class WhatsAppSticker : CDVPlugin {
-  
-  func sendToWhatsapp(command: CDVInvokedUrlCommand) {
+
+  private static let PasteboardExpirationSeconds: TimeInterval = 60
+  private static let PasteboardStickerPackDataType: String = "net.whatsapp.third-party.sticker-pack"
+  private static let WhatsAppURL: URL = URL(string: "whatsapp://stickerPack")!
+    
+  func sendToWhatsapp(_ command: CDVInvokedUrlCommand) {
     var pluginResult = CDVPluginResult(
       status: CDVCommandStatus_ERROR
     )
 
-    let jsonData : [String:Any] = command.arguments[0] as! [String:Any];
+    let jsonData = command.arguments[0] as? String ?? ""
 
-    StickerPackManager.queue.async {
-      var json: [String: Any] = [:]
-      json["identifier"] = jsonData["identifier"]
-      json["name"] = jsonData["name"]
-      json["publisher"] = jsonData["publisher"]
-      json["tray_image"] = jsonData["trayImageFileName"]
-
-      var stickersArray: [[String: Any]] = []
-
-      for sticker in json["stickers"] as! [String] {
-          var stickerDict: [String: Any] = [:]
-
-          stickerDict["image_data"] = sticker
-
-          stickersArray.append(stickerDict)
-      }
-      
-      json["stickers"] = stickersArray
-
-      let result = Interoperability.send(json: json)
-      DispatchQueue.main.async {
-          pluginResult = CDVPluginResult(
-            status: CDVCommandStatus_OK
-          )
+    if #available(iOS 10.0, *) {
+        pasteboard.setItems([[PasteboardStickerPackDataType: jsonData]], options: [UIPasteboardOption.localOnly: true, UIPasteboardOption.expirationDate: NSDate(timeIntervalSinceNow: PasteboardExpirationSeconds)])
+    } else {
+        pasteboard.setData(jsonData, forPasteboardType: PasteboardStickerPackDataType)
+    }
+    
+    DispatchQueue.main.async {
+      if canSend() {
+          if #available(iOS 10.0, *) {
+              UIApplication.shared.open(WhatsAppURL, options: [:], completionHandler: nil)
+          } else {
+              UIApplication.shared.openURL(WhatsAppURL)
+          }
       }
     }
 

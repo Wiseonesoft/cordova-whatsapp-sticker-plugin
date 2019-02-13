@@ -49,7 +49,7 @@
     // }
     NSString* json = [command.arguments objectAtIndex:0];
 
-    [UIPasteboard generalPasteboard] setData:json forPasteboardType:@"net.whatsapp.third-party.sticker-pack"];
+    [[UIPasteboard generalPasteboard] setData:json forPasteboardType:@"net.whatsapp.third-party.sticker-pack"];
 
     UIApplication *application = [UIApplication sharedApplication];
     NSURL *URL = [NSURL URLWithString:@"whatsapp://stickerPack"];
@@ -59,7 +59,7 @@
         }
     }];
 
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:"Deu certo"];
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Deu certo"];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }

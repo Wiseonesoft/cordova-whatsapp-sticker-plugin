@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-support-test" version="0.0.1">
+   <name>SupportTest</name>
+   
+   <js-module name="SupportTest" src="www/SupportTest.js">
+      <clobbers target="cordova.plugins.SupportTest" />
+   </js-module>
+
+   <platform name="ios">
+      <config-file parent="/*" target="config.xml">
+         <feature name="SupportTest">
+            <param name="ios-package" value="SupportTest" />
+         </feature>
+      </config-file>
+
+      <source-file src="src/ios/SupportTest.m" />
+
+   </platform>
+
+</plugin>

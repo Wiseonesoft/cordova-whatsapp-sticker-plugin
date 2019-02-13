@@ -11,6 +11,7 @@ import UIKit
       status: CDVCommandStatus_ERROR
     )
 
+    let pasteboard: UIPasteboard = UIPasteboard.general
     let jsonData = command.arguments[0] as? String ?? ""
 
     if #available(iOS 10.0, *) {

@@ -171,7 +171,7 @@ Agora, você só precisa adiciona-lo no construtor para conseguir compartilhar o
 #### Exemplo
 
 ```TypeScript
-import { Component } from '@angular/core
+import { Component } from '@angular/core';
 import { WhatsappProvider, StickerOptions } from "../../providers/whatsapp/whatsapp";
 
 @Component({

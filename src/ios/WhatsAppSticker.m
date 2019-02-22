@@ -16,7 +16,6 @@
 
 - (void)sendToWhatsapp:(CDVInvokedUrlCommand*)command
 {
-    CDVPluginResult* pluginResult = nil;
 
     // Obtém o JSON contendo as informações do Sticker Pack
     NSString* json = [command.arguments objectAtIndex:0];
@@ -31,14 +30,15 @@
 
     // Abre o URL Scheme, e por consequencia, abre o WhatsApp
     [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+        CDVPluginResult* pluginResult = nil;
         if (success) {
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Figurinhas enviadas."];
         } else {
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Ocorreu algum problema, as figurinhas não foram enviadas."];
         }
-    }];
 
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }];
 }
 
 @end

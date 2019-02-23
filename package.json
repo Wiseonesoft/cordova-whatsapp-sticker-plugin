@@ -1,6 +1,6 @@
 {
   "name": "cordova-whatsapp-sticker-plugin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Um plugin que compartilha Stickers do WhatsApp",
   "main": "index.js",
   "scripts": {},

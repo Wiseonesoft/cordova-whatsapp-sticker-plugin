@@ -19,6 +19,9 @@
 
     // Obtém o JSON contendo as informações do Sticker Pack
     NSString* json = [command.arguments objectAtIndex:0];
+    
+    // Converte para o formato correto para copiar para o Pasteboard
+    NSData* jsonData = [json dataUsingEncoding:NSUTF8StringEnconding];
 
     // Copia as informações do JSON para o Pasteboard, que é a forma na qual o Whatsapp lê as informações do Sticker Pack no iOS
     [[UIPasteboard generalPasteboard] setData:json forPasteboardType:@"net.whatsapp.third-party.sticker-pack"];

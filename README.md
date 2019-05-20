@@ -237,6 +237,4 @@ Para as imagens, elas não devem possuir os prefixos `data:image/png;base64,` ou
 
 Há umas formas de se compartilhar um Sticker no Android pelo Ionic também, só que é um tanto mais trabalhoso, visto que, você precisa editar o código nativo gerado pelo Cordova.
 
-Mas caso queira usar mesmo assim, há um código de exemplo [nesse repositório](https://github.com/H4ad/webapp-whatsapp-sticker/tree/master).
-
-Caso queira entender como funciona, manda uma mensagem que eu posso explicar como implementar no seu aplicativo.
+Se mesmo assim você quiser saber como, [veja aqui como implementar.](/Android.md)

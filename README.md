@@ -1,6 +1,6 @@
 # Cordova WhatsApp Sticker Plugin
 
-Um plugin para o Cordova Apache usado para compartilhar stickers do WhatsApp.
+Um plugin para o Cordova Apache usado para compartilhar stickers para o WhatsApp.
 
 ## Indice
 

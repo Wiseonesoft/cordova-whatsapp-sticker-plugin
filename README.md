@@ -22,13 +22,9 @@ Por enquanto, há apenas suporte para iOS, visto que, a forma na qual é compart
 
 `cordova plugin add cordova-whatsapp-sticker-plugin`
 
-## Como usar
+## Como usar no Ionic
 
-### Ionic
-
-Caso queira baixar um código para ver como funciona, [clique aqui](https://github.com/H4ad/webapp-whatsapp-sticker/tree/ios) para ver um repositório com um código implementando o plugin.
-
-### Usar no Ionic
+### Implementação
 
 > Por enquanto, apenas é possivel utilizar o plugin no Ionic v3, visto que, no v4 há algums problemas na criação do serviço que se conecta com o plugin no cordova.
 > Mas, se houver uma atualização, sinta-se a vontade de criar seu próprio serviço que deve funcionar sem problemas.

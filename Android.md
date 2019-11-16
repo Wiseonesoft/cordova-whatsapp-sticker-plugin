@@ -230,6 +230,8 @@ Crie agora, na dentro da pasta `assets`, o arquivo `contents.json`, e coloque o 
       "publisher_email":"",
       "publisher_website": "",
       "privacy_policy_website": "",
+      "image_data_version": "1",
+      "avoid_cache": false,
       "license_agreement_website": "",
       "stickers": [
         {

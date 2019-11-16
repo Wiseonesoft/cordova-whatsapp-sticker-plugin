@@ -69,14 +69,14 @@ export interface StickerOptions {
    *
    * @note É opcional, mas deve ser incluido mesmo que seja com uma string em branco ''
    */
-  ios_app_store_link: string;
+  ios_app_store_link?: string;
 
   /**
    * O link para acessar o aplicativo na PlayStore
    *
    * @note É opcional, mas deve ser incluido mesmo que seja com uma string em branco ''
    */
-  android_play_store_link: string;
+  android_play_store_link?: string;
 
   /**
    * O identificador desse pacote
@@ -98,21 +98,36 @@ export interface StickerOptions {
    *
    * @note É opcional, mas deve ser incluido mesmo que seja com uma string em branco ''
    */
-  publisher_website: string;
+  publisher_website?: string;
 
   /**
    * O url para as politicas de privacidade
    *
    * @note É opcional, mas deve ser incluido mesmo que seja com uma string em branco ''
    */
-  privacy_policy_website: string;
+  privacy_policy_website?: string;
 
   /**
    * O url para o site com as licensas
    *
    * @note É opcional, mas deve ser incluido mesmo que seja com uma string em branco ''
    */
-  license_agreement_website: string;
+  license_agreement_website?: string;
+  
+  /**
+   * A versão das informações da imagem
+   *
+   * @note É obrigatório, sendo seu valor padrão igual a '1'
+   */
+  image_data_version: string;
+
+  /**
+   * Diz se deve evitar fazer cache das figurinhas
+   * 
+   * @note É obrigatório. Não conheço os impactos que há em adicionar ou remover essa propriedade, 
+   * ela foi introduzida junto com a "image_data_version" no commit https://github.com/WhatsApp/stickers/commit/9a4bb5ccb14b072e020cf0c14798fac453b18d15#diff-a2165ccb734a0f8fcead6d3458b1d132R11   
+   */
+  avoid_cache: boolean;
 
   /**
    * A imagem que representa esse pacote como um todo
@@ -141,7 +156,7 @@ export interface StickerImageData {
    * @note Elas devem ser imagens em formato WEBP que sigam os requisitos do WhatsApp
    */
   image_data: string;
-
+ 
   /**
    * Uma lista de emojis para representar esse Sticker, no máximo 3 emojis
    */
@@ -196,6 +211,8 @@ export class HomePage {
       publisher_website: '', // Opcional
       privacy_policy_website: '', // Opcional
       license_agreement_website: '', // Opcional
+      image_data_version: '1',
+      avoid_cache: false,
       tray_image: 'PNG EM BASE64',
       stickers: [
         {

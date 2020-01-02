@@ -217,15 +217,15 @@ export class HomePage {
       stickers: [
         {
           image_data: 'WEBP EM BASE64',
-          emoji: ["☕", "🙂"]
+          emojis: ["☕", "🙂"]
         },
         {
           image_data: 'WEBP EM BASE64',
-          emoji: ["☕", "🙂"]
+          emojis: ["☕", "🙂"]
         },
         {
           image_data: 'WEBP EM BASE64',
-          emoji: ["☕", "🙂"]
+          emojis: ["☕", "🙂"]
         },
       ]
     };

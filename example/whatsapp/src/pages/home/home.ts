@@ -1,6 +1,7 @@
 //#region Imports
 
 import { Component } from '@angular/core';
+import { WebIntent } from '@ionic-native/web-intent';
 
 import { Platform } from 'ionic-angular';
 
@@ -23,6 +24,7 @@ export class HomePage {
   constructor(
     private readonly whatsapp: WhatsappProvider,
     private readonly platform: Platform,
+    private readonly webIntent: WebIntent,
   ) {}
 
   //#endregion
@@ -66,7 +68,25 @@ export class HomePage {
 
       this.whatsapp.sendToWhatsapp(json).then(success => alert(success), error => alert(error));
     } else if (this.platform.is('android')) {
-      // TODO: Add implementation
+      this.webIntent.startActivity({
+        action: 'com.whatsapp.intent.action.ENABLE_STICKER_PACK',
+        extras: {
+          'sticker_pack_id': 'whatsapp-example-identifier', // A identificação do pacote a ser compartilhado.
+          //'sticker_pack_authority': '{bundle_id}.stickercontentprovider',
+          // Substitua {bundle_id} pelo bundle id encontrado no config.xml.
+          // Como o meu é io.ionic.starter, fica assim:
+          'sticker_pack_authority': 'whatsapp.example.stickercontentprovider',
+          'sticker_pack_name': 'WhatsApp Example Name' // O nome do pacote, sempre coloque o mesmo que o colocado em contents.json
+        }
+      })
+        .then(success => {
+          // Esse código é chamado quando tudo ocorre sem problemas.
+          console.log(success);
+        })
+        .catch(error => {
+          // Caso ocorra algum erro, por exemplo, se o usuário não possui o WhatsApp instalado, esse código será chamado.
+          console.log(error);
+        });
     }
   }
 

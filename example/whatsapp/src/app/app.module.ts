@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { WebIntent } from '@ionic-native/web-intent';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -27,6 +28,7 @@ import { WhatsappProvider } from '../providers/whatsapp/whatsapp';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     WhatsappProvider,
+    WebIntent,
   ],
 })
 export class AppModule { }

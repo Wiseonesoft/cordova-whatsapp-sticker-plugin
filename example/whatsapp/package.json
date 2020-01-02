@@ -22,7 +22,9 @@
     "@ionic-native/core": "4.20.0",
     "@ionic-native/splash-screen": "4.20.0",
     "@ionic-native/status-bar": "4.20.0",
+    "@ionic-native/web-intent": "^4.20.0",
     "@ionic/storage": "2.2.0",
+    "com-darryncampbell-cordova-plugin-intent": "2.0.0",
     "cordova-android": "8.1.0",
     "cordova-whatsapp-sticker-plugin": "0.0.5",
     "ionic-angular": "3.9.9",
@@ -52,7 +54,8 @@
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "com-darryncampbell-cordova-plugin-intent": {}
     },
     "platforms": [
       "android"

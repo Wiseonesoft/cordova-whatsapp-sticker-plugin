@@ -1,4 +1,8 @@
-import { StickerImageData } from '../../providers/whatsapp/whatsapp';
+//#region Imports
+
+import { StickerImageData } from './sticker-image-data';
+
+//#endregion
 
 /**
  * As opções do pacote de figurinhas
